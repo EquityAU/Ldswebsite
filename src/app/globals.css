@@ -1,0 +1,103 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #1c1917;
+  --color-ink-soft: #57534e;
+  --color-ink-muted: #8a827a;
+  --color-cream: #faf7f2;
+  --color-sand: #f1eae0;
+  --color-linen: #e8dfd2;
+  --color-line: #e3dacc;
+  --color-clay: #b4573a;
+  --color-clay-dark: #93452c;
+  --color-clay-soft: #f3e2d9;
+  --color-sage: #7f9072;
+  --color-sage-soft: #e6ebe0;
+  --color-velvet: #5a2b4d;
+
+  --font-display: var(--font-display), Georgia, serif;
+  --font-body: var(--font-body), system-ui, sans-serif;
+
+  --radius-card: 18px;
+
+  --shadow-card: 0 1px 2px rgba(28, 25, 23, 0.05), 0 8px 24px -12px rgba(28, 25, 23, 0.18);
+  --shadow-lift: 0 2px 4px rgba(28, 25, 23, 0.06), 0 18px 40px -16px rgba(28, 25, 23, 0.28);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-cream);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.font-display {
+  font-family: var(--font-display);
+  font-variation-settings: "SOFT" 60, "opsz" 72;
+}
+
+.swatch-fabric {
+  background-image: radial-gradient(circle at 30% 25%, rgba(255, 255, 255, 0.28), transparent 60%);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-rise {
+  animation: rise 0.35s ease-out both;
+}
+
+.prose-lds h2 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  margin-top: 2.5rem;
+}
+
+.prose-lds h2:first-child {
+  margin-top: 0;
+}
+
+.prose-lds p,
+.prose-lds li {
+  color: var(--color-ink-soft);
+  line-height: 1.7;
+  margin-top: 0.75rem;
+}
+
+.prose-lds ul {
+  list-style: disc;
+  padding-left: 1.25rem;
+}
+
+.prose-lds a {
+  text-decoration: underline;
+  text-decoration-color: var(--color-line);
+  text-underline-offset: 4px;
+}
+
+.prose-lds a:hover {
+  text-decoration-color: var(--color-ink);
+}
