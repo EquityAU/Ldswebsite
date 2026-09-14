@@ -1,9 +1,10 @@
 import Link from "next/link";
-import { ChevronDown, Search } from "lucide-react";
+import { Search } from "lucide-react";
 import { NAV, NAV_LINKS, SITE } from "@/lib/site";
 import { Container } from "./ui";
 import CartButton from "./CartButton";
 import MobileMenu from "./MobileMenu";
+import NavDropdown from "./NavDropdown";
 
 
 function Wordmark() {
@@ -40,27 +41,7 @@ export default function Header() {
           </Link>
 
           {NAV.map((group) => (
-            <div key={group.label} className="group relative h-full">
-              <button className="flex h-full items-center gap-1 rounded-full px-3 py-2 text-sm font-medium text-ink-soft hover:bg-sand hover:text-ink group-focus-within:text-ink">
-                {group.label}
-                <ChevronDown className="size-3.5 opacity-60 transition group-hover:rotate-180" />
-              </button>
-
-              <div className="invisible absolute left-0 top-full z-50 w-[420px] translate-y-1 pt-2 opacity-0 transition group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
-                <div className="rounded-card border border-line bg-white p-2 shadow-lift">
-                  <ul className="grid grid-cols-1 gap-0.5">
-                    {group.items.map((item) => (
-                      <li key={item.href}>
-                        <Link href={item.href} className="block rounded-xl px-3 py-2 hover:bg-sand">
-                          <span className="block text-sm font-medium">{item.label}</span>
-                          {item.hint && <span className="block text-xs text-ink-muted">{item.hint}</span>}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </div>
+            <NavDropdown key={group.label} label={group.label} items={group.items} />
           ))}
 
           {NAV_LINKS.slice(1).map((link) => (
